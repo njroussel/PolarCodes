@@ -7,7 +7,7 @@ function k_indices = get_indices(N, p_erasure, R)
 % Check if N is valid
 [f, e] = log2(N);
 if f ~= 0.5
-    error('N was not a power of 2');
+    error('N was not a power of 2!');
 end
 
 % Compute erasure probabilites
