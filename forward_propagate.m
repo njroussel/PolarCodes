@@ -6,8 +6,14 @@ out_structure = structure;
 [N, n_plus_one] = size(structure);
 n = n_plus_one - 1;
 
-for i = 1:n
-    for j = 1: 
+    function blocks = separate_blocks(column, structure)
+        col = structure(:,column);
+        block_size = 2.^column;
+        blocks = reshape(col, block_size, -1);
+    end
+
+
+out_structure
 
 
 

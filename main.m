@@ -23,3 +23,5 @@ observation = BEC(p_erasure, code_word);
 frozen_bits = get_frozen_bits(N, k_indices);
 
 structure = create_structure(N, frozen_bits, observation);
+structure = forward_propagate(structure);
+disp(structure);
