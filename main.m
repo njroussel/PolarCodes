@@ -7,7 +7,7 @@ clc;
 % Configuration
 N = 256; 
 p_erasure = 0.4;
-num_simulations_per_rate = 100;
+num_simulations_per_rate = 200;
 num_rates_simulated = 100;
 
 rates = linspace(1/4, 1 - p_erasure, num_rates_simulated);
