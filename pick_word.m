@@ -1,6 +1,5 @@
 function word = pick_word(k)
-%PICK_WORD Summary of this function goes here
-%   Detailed explanation goes here
+% Randomly generates a binary word of size k.
 
 word = randi([0 1], 1, k);
 

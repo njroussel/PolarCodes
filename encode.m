@@ -1,6 +1,6 @@
 function code_word = encode(word, N, k_indices)
-%ENCODE Summary of this function goes here
-%   Detailed explanation goes here
+% Encodes the binary word into N sized polard code block by using the
+% indices provided in k_inidices.
 
 % Check if N is valid
 [f, e] = log2(N);

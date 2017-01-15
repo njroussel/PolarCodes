@@ -1,6 +1,7 @@
 function frozen_bits = get_frozen_bits(N, k_indices)
-%GET_FROZEN_BITS Summary of this function goes here
-%   Detailed explanation goes here
+% Creates the first layer of the graphical model - strucutre. It creates a
+% N sized block where all indices are set to 0 except the k_indices which
+% are erased (NaN values).
 
 frozen_bits = zeros(1,N);
 frozen_bits(k_indices) = NaN;

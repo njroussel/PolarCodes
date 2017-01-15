@@ -1,4 +1,6 @@
 function out_indices = get_subbranches(index)
+% Returns for a given index (node) in the structure the two children nodes
+% indices.
 row = index(1);
 col = index(2);
 

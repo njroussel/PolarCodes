@@ -1,6 +1,7 @@
 function structure = create_structure(N, frozen_bits, observation)
-%CREATE_STRUCTURE Summary of this function goes here
-%   Detailed explanation goes here
+% Creates the structure (Graphical model) where the first layer are the
+% frozen bits (frozen_bits) and the last layer are the observed values from
+% the channel (observation). N is the code block size.
 
 % Check if N is valid
 [f, e] = log2(N);

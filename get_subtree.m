@@ -1,4 +1,6 @@
 function subtree = get_subtree(index, n)
+% For a given index (node) in the graphical model, it returns all its child
+% indicies (subtree) up to a depth of n.
 
 if(index(2) == n -1)
    subtree = cat(1, index, get_subbranches(index));

@@ -1,5 +1,5 @@
 function erasures = compute_p_erasures(n, p_erasure)
-%
+% Computes the erasure probabilites for each index in the polar code block.
 
     function y = f_minus(x)
         y = 1 - ((1 - x).^2);

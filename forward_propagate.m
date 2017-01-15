@@ -1,6 +1,6 @@
 function out_structure = forward_propagate(structure)
-%FORWARD_PROPAGATE Summary of this function goes here
-%   Detailed explanation goes here
+% Solves the strucutre (graphical model of polar code construction) from
+% front to back.
 
 out_structure = structure;
 [~, n_plus_one] = size(structure);
@@ -25,7 +25,7 @@ n = n_plus_one - 1;
             evens = blocks(2:2:end, :);
         end
         
-        tops = odds + evens;
+        tops = mod(odds + evens, 2);
         bots = evens;
         new_column = ones(one, two);
         new_column(1:2:end) = tops;
@@ -45,7 +45,7 @@ n = n_plus_one - 1;
     end
 
 
-for i = 1:n-1
+for i = 1:n
     blocks = separate_blocks(i, out_structure);
     out_structure(:, i+1)  = replace_column(out_structure(:, i+1), new_column(blocks));
 end

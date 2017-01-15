@@ -1,35 +1,35 @@
-% Clear variables and command window
+% Example script which plots the block error probability as function of
+% rate. 
+
 clear;
 clc;
 
 % Configuration
-N = 8;
-R = 0.5;
-p_erasure = 1/4;
+N = 256; 
+p_erasure = 0.4;
+num_simulations_per_rate = 10;
+num_rates_simulated = 10;
 
-% Compute indices
-k_indices = get_indices(N, p_erasure, R);
-disp(' ');
+rates = linspace(1/4, 1 - p_erasure, num_rates_simulated + 1);
+rates = rates(2:end);
 
-% Get a random word
-word = pick_word(floor(R*N));
+success_rates = zeros(1, num_rates_simulated);
 
-% Encode word
-code_word = encode(word, N, k_indices);
+for i = 1:num_rates_simulated
+    count = 0;
+    rate = rates(i);
+    for j = 1:num_simulations_per_rate
+        count = count + simulate(N, rate, p_erasure);
+    end
+    success_rates(i) = count / num_simulations_per_rate;
+end
 
-% Pass code word through channel
-observation = BEC(p_erasure, code_word);
-
-frozen_bits = get_frozen_bits(N, k_indices);
-
-structure = create_structure(N, frozen_bits, observation);
-disp(structure);
-structure = forward_propagate(structure);
-disp(structure);
-
-[tmp, n_plus_one] = size(structure);
-tree = get_subtree([1 1], n_plus_one -1);
-back_propagate(tree, structure);
+clc;
 
 
-
+figure % opens new figure window
+block_error_probabilites = 1 - success_rates;
+plot(rates, block_error_probabilites, '-o','MarkerIndices', 1:1)
+title('Block error probability as a function of rate')
+ylabel('Block error probability')
+xlabel('Rate')
