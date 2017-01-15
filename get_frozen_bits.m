@@ -3,7 +3,7 @@ function frozen_bits = get_frozen_bits(N, k_indices)
 %   Detailed explanation goes here
 
 frozen_bits = zeros(1,N);
-frozen_bits(k_indices) = -1;
+frozen_bits(k_indices) = NaN;
 
 disp('The frozen bits are:');
 disp(frozen_bits);

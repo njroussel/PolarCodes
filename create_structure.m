@@ -9,13 +9,10 @@ if f ~= 0.5
 end
 n = e - 1;
 
-structure = ones(N, n + 1);
-structure = structure.* -1;
+structure = NaN(N, n + 1);
 
 structure(:,1) = frozen_bits;
 structure(:,n + 1) = observation;
 
-
-disp(structure);
 end
 

@@ -6,7 +6,7 @@ observation = code_word;
 p_erasures = rand(1,length(code_word));
 for i = 1:length(code_word)
     if p_erasures(i) < p_erasure
-        observation(i) = -1;
+        observation(i) = NaN;
     end
 end
 
