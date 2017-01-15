@@ -28,7 +28,7 @@ clc;
 
 figure % opens new figure window
 block_error_probabilites = 1 - success_rates;
-plot(rates, block_error_probabilites, '-o','MarkerIndices', 1:num_rates_simulated)
+semilogy(rates, block_error_probabilites, '-o','MarkerIndices', 1:num_rates_simulated)
 title('Block error probability as a function of rate')
 ylabel('Block error probability')
 xlabel('Rate')
